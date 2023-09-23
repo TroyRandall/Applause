@@ -16,6 +16,7 @@ class User(db.Model, UserMixin):
     firstName = db.Column(db.String(50), nullable=False)
     lastName = db.Column(db.String(50), nullable=False)
     aboutMe = db.Column(db.String(255), nullable=False)
+    imageUrl = db.Column(db.String(), nullable=True)
 
     @property
     def password(self):
@@ -32,5 +33,9 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'firstName': self.firstName,
+            'lastName': self.lastName,
+            'aboutMe': self.aboutMe,
+            'imageUrl': self.imageUrl
         }

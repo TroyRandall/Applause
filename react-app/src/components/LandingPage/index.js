@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useHistory, NavLink } from 'react-router-dom'
+import { Redirect, NavLink } from 'react-router-dom'
 import welcomeVideo  from './welcomeVideo.mp4'
 import djImage from './dj-women-wallpaper.png'
 import guitarPlayer from './guitar-player.png'
@@ -8,10 +8,9 @@ import engineer from './Engineer.png'
 import './landingPage.css';
 
 function LandingPage () {
-    const history= useHistory();
     const currentUser = useSelector((state) => state.session.user);
 
-    if (currentUser) return history.push('/centerstage')
+    if (currentUser) return <Redirect to={`/profile/${currentUser.id}`} />
 
     return (
         <div id='landing-page-container'>

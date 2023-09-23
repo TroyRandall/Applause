@@ -23,3 +23,9 @@ def user(id):
     """
     user = User.query.get(id)
     return user.to_dict()
+
+@user_routes.route('/<string:email>')
+def userByEmail(email):
+
+    currentUser=User.query.filter(User.email == email).all()
+    return currentUser.to_dict()

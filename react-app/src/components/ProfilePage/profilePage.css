@@ -1,0 +1,93 @@
+#profile-page-container {
+  display: flex;
+  flex-flow: column;
+  margin: auto;
+  align-items: center;
+  /* justify-content: space-evenly; */
+}
+
+#profile-page-cover-photo {
+  height: 75vh;
+  width: 92vw;
+}
+
+#profile-page-first-row {
+  display: flex;
+  width: 80vw;
+}
+
+#profile-page-user-image {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  margin: 20px;
+}
+
+#profile-page-user-info {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+}
+
+#profile-page-full-name {
+  font-size: 5.8em;
+  font-family: Bangers;
+  font-weight: 700;
+  font-variant: small-caps;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#profile-page-username {
+    font-size: 3.5em;
+    font-family: 'Caveat', sand-serif;
+    font-weight: 700;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#profile-page-about-me {
+    font-size: 1.5em;
+    font-family: monospace;
+    font-weight: 650;
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 50vw;
+    height: 15vh;
+    padding: 20px;
+}
+
+.overlay {
+  background-color: rgba(55,55,55,0.8);
+  z-index: 7;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.overlayhidden {
+  display: none;
+}
+
+#create-post-component-container {
+  height: 60vh;
+  width: 40vw;
+  background-color: antiquewhite;
+  position: absolute;
+  top: 20vh;
+  right: 30vw;
+  display: flex;
+}
+
+#create-post-component {
+  display: flex;
+  flex-flow: column;
+}

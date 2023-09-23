@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField,
+from wtforms import StringField, TextAreaField
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import User
 
@@ -29,4 +29,3 @@ class SignUpForm(FlaskForm):
     aboutMe = TextAreaField('about me', validators=[DataRequired()])
     firstName = StringField('first name', validators=[DataRequired()])
     lastName = StringField('last name', validators=[DataRequired()])
-    

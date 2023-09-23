@@ -7,7 +7,7 @@ import logo from "../../assets/logo.png";
 
 function Navigation({ isLoaded }) {
   const currentUser = useSelector((state) => state.session.user);
-  const profileURL = `/profiles/${currentUser?.id}`;
+  const profileURL = `/profile/${currentUser?.id}`;
 
   return (
     isLoaded && (
