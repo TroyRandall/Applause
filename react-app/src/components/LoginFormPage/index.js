@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
+import { authenticate } from "../../store/session";
+
+//firebase imports
+
 import { Redirect } from "react-router-dom";
+import { signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
+import { auth } from "../../firebase";
+
+//static asset imports
+
 import pic1 from "./1.png";
 import pic2 from "./2.png";
 import pic3 from "./3.png";
@@ -13,6 +22,7 @@ function LoginFormPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [user, setUser ] = useState({})
 
   useEffect(() => {
     function initSlideShow(slideshow) {
@@ -42,10 +52,15 @@ function LoginFormPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login(email, password));
-    if (data) {
-      setErrors(data);
+    try {
+      const data = await signInWithEmailAndPassword(auth,email, password)
+      console.log(data.user.email);
+      dispatch(authenticate(data.user.email))
+    } catch (error) {
+      setErrors(error)
     }
+
+
   };
 
   return (

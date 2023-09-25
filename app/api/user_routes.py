@@ -28,4 +28,4 @@ def user(id):
 def userByEmail(email):
 
     currentUser=User.query.filter(User.email == email).all()
-    return currentUser.to_dict()
+    return currentUser[0].to_dict()

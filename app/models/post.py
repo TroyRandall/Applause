@@ -8,6 +8,7 @@ class Post(db.Model):
 
     id=db.Column(db.Integer, primary_key=True)
     userId=db.Column(db.Integer,  db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+    postTitle = db.Column(db.String())
     postContent = db.Column(db.String(255), nullable=False)
     imageSrc = db.Column(db.String())
     musicSrc = db.Column(db.String())

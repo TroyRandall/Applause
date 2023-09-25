@@ -30,6 +30,8 @@ def upgrade():
     sa.Column('firstName', sa.String(length = 50), nullable=False),
     sa.Column('lastName', sa.String(length=50), nullable=False),
     sa.Column('aboutMe', sa.String(length=255), nullable=False),
+    sa.Column('role', sa.String(), default='Fan'),
+    sa.Column('imageUrl', sa.String(), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')

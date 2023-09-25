@@ -16,6 +16,7 @@ class User(db.Model, UserMixin):
     firstName = db.Column(db.String(50), nullable=False)
     lastName = db.Column(db.String(50), nullable=False)
     aboutMe = db.Column(db.String(255), nullable=False)
+    role = db.Column(db.String(), default='Fan')
     imageUrl = db.Column(db.String(), nullable=True)
 
     @property
@@ -37,5 +38,6 @@ class User(db.Model, UserMixin):
             'firstName': self.firstName,
             'lastName': self.lastName,
             'aboutMe': self.aboutMe,
+            'role': self.role,
             'imageUrl': self.imageUrl
         }

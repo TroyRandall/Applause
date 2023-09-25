@@ -2,11 +2,16 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../store/session";
+import { authenticate } from "../../store/session";
+
+import { createUserWithEmailAndPassword, sendEmailVerification} from "firebase/auth";
+import { auth } from '../../firebase'
 import pic1 from "./1.png";
 import pic2 from "./2.png";
 import pic3 from "./3.png";
 
 import "./SignupForm.css";
+
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -19,7 +24,7 @@ function SignupFormPage() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [aboutMe, setAboutMe] = useState("");
-  const [role, setRole] = useState("fan");
+  const [role, setRole] = useState("Fan");
 
   useEffect(() => {
     function initSlideShow(slideshow) {
@@ -49,10 +54,20 @@ function SignupFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
-      const data = await dispatch(signUp(username, email, password));
-      if (data) {
-        setErrors(data);
+      try {
+        const response = await dispatch(signUp(username, email, password, firstName, lastName, aboutMe, role))
+        if(!response) {
+           const data = await createUserWithEmailAndPassword(auth, email, password);
+           sendEmailVerification(auth.currentUser)
+      console.log(data.user.email)
+        }
+
+
+      } catch (error) {
+        console.log(error.message.split('(')[1])
+        setErrors([error.message.split('(')[1]])
       }
+
     } else {
       setErrors([
         "Confirm Password field must be the same as the Password field",
@@ -94,6 +109,7 @@ function SignupFormPage() {
           </ul> */}
       <div id="sign-up-form-container">
         <h1 id="sign-up-title">Sign Up</h1>
+        {Object.values(errors).map((error) => <p>{error}</p>)}
         <p id="sign-up-info">
           Please Fill Out The Following Information About Yourself...
         </p>

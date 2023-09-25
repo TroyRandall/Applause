@@ -18,12 +18,12 @@ function ProfilePageTest () {
         });
     }, [allImagesRef])
 
-    const uploadImage = () => {
+    const uploadImage = async () => {
         if(imageUpload === null) return;
         const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);uploadBytes(imageRef, imageUpload).then((response) => {
-            console.log(response);
             alert('Your Image Has Been Uploaded')
         })
+        
 
     }
 
@@ -41,4 +41,3 @@ function ProfilePageTest () {
 }
 
 export default ProfilePageTest;
-    

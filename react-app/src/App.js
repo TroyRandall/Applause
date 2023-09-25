@@ -7,15 +7,28 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import LandingPage from './components/LandingPage';
 import ProfilePage from './components/ProfilePage';
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [user, setUser ]=useState(false)
+  const currentUser=((state) => state.session.user)
   useEffect(() => {
-    dispatch(authenticate()).then(() => setIsLoaded(true));
-  }, [dispatch]);
+    if (user) {
+      dispatch(authenticate(user?.email)).then(() => setIsLoaded(true));
+    }else {
+      dispatch(authenticate()).then(() => setIsLoaded(true));
+    }
 
-  return (
+  }, [dispatch, user]);
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser)
+    // dispatch(authenticate(currentUser.email)).then(() => setIsLoaded(true));
+  })
+  return isLoaded && (
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
