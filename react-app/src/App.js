@@ -7,12 +7,16 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import LandingPage from './components/LandingPage';
 import ProfilePage from './components/ProfilePage';
+<<<<<<< HEAD
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
+=======
+>>>>>>> 3248a660 (truncated history)
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+<<<<<<< HEAD
   const [user, setUser ]=useState(false)
   const currentUser=((state) => state.session.user)
   useEffect(() => {
@@ -29,6 +33,13 @@ function App() {
     // dispatch(authenticate(currentUser.email)).then(() => setIsLoaded(true));
   })
   return isLoaded && (
+=======
+  useEffect(() => {
+    dispatch(authenticate()).then(() => setIsLoaded(true));
+  }, [dispatch]);
+
+  return (
+>>>>>>> 3248a660 (truncated history)
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (

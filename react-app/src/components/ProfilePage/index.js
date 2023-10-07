@@ -3,7 +3,10 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import { storage } from "../../firebase";
+<<<<<<< HEAD
 import { auth } from "../../firebase";
+=======
+>>>>>>> 3248a660 (truncated history)
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
 
@@ -17,6 +20,7 @@ function ProfilePage() {
   const [postTitle, setPostTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageUpload, setImageUpload] = useState(null);
+<<<<<<< HEAD
   const [imageURL, setImageUrl] = useState("");
 
   const currentUser = useSelector((state) => state.session.user);
@@ -24,28 +28,45 @@ function ProfilePage() {
   useEffect(() => {
     if (imageUpload) uploadImage();
   }, [imageUpload]);
+=======
+
+  const currentUser = useSelector((state) => state.session.user);
+
+>>>>>>> 3248a660 (truncated history)
   const toggleModal = () => {
     setToggle(true);
   };
 
   const UlClassName = "overlay" + (toggle ? "" : "hidden");
 
+<<<<<<< HEAD
   const uploadImage = (e) => {
     if (imageUpload === null) return;
     console.log(auth.currentUser);
     const imageRef = ref(storage, `images/${id}/${imageUpload?.name + v4()}`);
     uploadBytes(imageRef, imageUpload).then((response) => {
       getDownloadURL(response.ref).then((res) => setImageUrl(res));
+=======
+  const uploadImage = () => {
+    if (imageUpload === null) return;
+    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+    uploadBytes(imageRef, imageUpload).then((response) => {
+      console.log(response);
+>>>>>>> 3248a660 (truncated history)
       alert("Your Image Has Been Uploaded");
     });
   };
 
+<<<<<<< HEAD
   console.log(imageUpload);
+=======
+>>>>>>> 3248a660 (truncated history)
   const checkModal = () => {
     if (toggle) {
       return (
         <div className={UlClassName} id="overlay">
           <div id="create-post-component-container">
+<<<<<<< HEAD
             <div id="create-post-content-container">
               <div id="create-post-preview-container" className="card">
                 <img
@@ -128,6 +149,37 @@ function ProfilePage() {
                 </label>
                 <button type="submit">Create Post</button>
               </form></div>
+=======
+            <h2>Create Your Post</h2>
+            <div id='post-preview'>
+              <img />
+              <h2>{postTitle ? postTitle : 'Post Title'}</h2>
+              <p id='post-description-preview'></p>
+            </div>
+            <div id="create-post-component">
+              <label>Post Title</label>
+              <input
+                type="text"
+                value={postTitle}
+                onChange={(e) => setPostTitle(e.target.value)}
+                placeholder="Title..."
+                required
+              />
+              <label>Choose Your Image</label>
+              <input
+                type="file"
+                onChange={(e) => setImageUpload(e.target.files[0])}
+              />
+              <button onClick={uploadImage}>Upload Image</button>
+              <label>Post Details</label>
+              <input
+                type="text"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Please Enter Some Details About Your Post..."
+                required
+              />{" "}
+>>>>>>> 3248a660 (truncated history)
             </div>
           </div>
         </div>

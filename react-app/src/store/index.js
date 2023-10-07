@@ -1,12 +1,18 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
+<<<<<<< HEAD
 import postsReducer from './posts'
 
 const rootReducer = combineReducers({
   session,
   postsReducer,
   
+=======
+
+const rootReducer = combineReducers({
+  session,
+>>>>>>> 3248a660 (truncated history)
 });
 
 

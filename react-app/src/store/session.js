@@ -84,7 +84,11 @@ export const logout = () => async (dispatch) => {
 	}
 };
 
+<<<<<<< HEAD
 export const signUp = (username, email, password, firstName, lastName, aboutMe, role) => async (dispatch) => {
+=======
+export const signUp = (username, email, password) => async (dispatch) => {
+>>>>>>> 3248a660 (truncated history)
 	const response = await fetch("/api/auth/signup", {
 		method: "POST",
 		headers: {
@@ -94,6 +98,7 @@ export const signUp = (username, email, password, firstName, lastName, aboutMe, 
 			username,
 			email,
 			password,
+<<<<<<< HEAD
 			firstName,
 			lastName,
 			aboutMe,
@@ -103,6 +108,11 @@ export const signUp = (username, email, password, firstName, lastName, aboutMe, 
 
 	console.log(response)
 
+=======
+		}),
+	});
+
+>>>>>>> 3248a660 (truncated history)
 	if (response.ok) {
 		const data = await response.json();
 		dispatch(setUser(data));

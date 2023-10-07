@@ -2,17 +2,23 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../store/session";
+<<<<<<< HEAD
 import { authenticate } from "../../store/session";
 
 import { createUserWithEmailAndPassword, sendEmailVerification} from "firebase/auth";
 import { auth } from '../../firebase'
+=======
+>>>>>>> 3248a660 (truncated history)
 import pic1 from "./1.png";
 import pic2 from "./2.png";
 import pic3 from "./3.png";
 
 import "./SignupForm.css";
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3248a660 (truncated history)
 function SignupFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
@@ -24,7 +30,11 @@ function SignupFormPage() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [aboutMe, setAboutMe] = useState("");
+<<<<<<< HEAD
   const [role, setRole] = useState("Fan");
+=======
+  const [role, setRole] = useState("fan");
+>>>>>>> 3248a660 (truncated history)
 
   useEffect(() => {
     function initSlideShow(slideshow) {
@@ -54,6 +64,7 @@ function SignupFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
+<<<<<<< HEAD
       try {
         const response = await dispatch(signUp(username, email, password, firstName, lastName, aboutMe, role))
         if(!response) {
@@ -68,6 +79,12 @@ function SignupFormPage() {
         setErrors([error.message.split('(')[1]])
       }
 
+=======
+      const data = await dispatch(signUp(username, email, password));
+      if (data) {
+        setErrors(data);
+      }
+>>>>>>> 3248a660 (truncated history)
     } else {
       setErrors([
         "Confirm Password field must be the same as the Password field",
@@ -109,7 +126,10 @@ function SignupFormPage() {
           </ul> */}
       <div id="sign-up-form-container">
         <h1 id="sign-up-title">Sign Up</h1>
+<<<<<<< HEAD
         {Object.values(errors).map((error) => <p>{error}</p>)}
+=======
+>>>>>>> 3248a660 (truncated history)
         <p id="sign-up-info">
           Please Fill Out The Following Information About Yourself...
         </p>

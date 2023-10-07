@@ -18,12 +18,21 @@ function ProfilePageTest () {
         });
     }, [allImagesRef])
 
+<<<<<<< HEAD
     const uploadImage = async () => {
         if(imageUpload === null) return;
         const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);uploadBytes(imageRef, imageUpload).then((response) => {
             alert('Your Image Has Been Uploaded')
         })
         
+=======
+    const uploadImage = () => {
+        if(imageUpload === null) return;
+        const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);uploadBytes(imageRef, imageUpload).then((response) => {
+            console.log(response);
+            alert('Your Image Has Been Uploaded')
+        })
+>>>>>>> 3248a660 (truncated history)
 
     }
 
@@ -41,3 +50,7 @@ function ProfilePageTest () {
 }
 
 export default ProfilePageTest;
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 3248a660 (truncated history)

@@ -8,7 +8,10 @@ class Post(db.Model):
 
     id=db.Column(db.Integer, primary_key=True)
     userId=db.Column(db.Integer,  db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+<<<<<<< HEAD
     postTitle = db.Column(db.String())
+=======
+>>>>>>> 3248a660 (truncated history)
     postContent = db.Column(db.String(255), nullable=False)
     imageSrc = db.Column(db.String())
     musicSrc = db.Column(db.String())

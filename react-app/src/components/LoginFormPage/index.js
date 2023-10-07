@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
+<<<<<<< HEAD
 import { authenticate } from "../../store/session";
 
 //firebase imports
@@ -11,6 +12,9 @@ import { auth } from "../../firebase";
 
 //static asset imports
 
+=======
+import { Redirect } from "react-router-dom";
+>>>>>>> 3248a660 (truncated history)
 import pic1 from "./1.png";
 import pic2 from "./2.png";
 import pic3 from "./3.png";
@@ -22,7 +26,10 @@ function LoginFormPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+<<<<<<< HEAD
   const [user, setUser ] = useState({})
+=======
+>>>>>>> 3248a660 (truncated history)
 
   useEffect(() => {
     function initSlideShow(slideshow) {
@@ -52,6 +59,7 @@ function LoginFormPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     try {
       const data = await signInWithEmailAndPassword(auth,email, password)
       console.log(data.user.email);
@@ -61,6 +69,12 @@ function LoginFormPage() {
     }
 
 
+=======
+    const data = await dispatch(login(email, password));
+    if (data) {
+      setErrors(data);
+    }
+>>>>>>> 3248a660 (truncated history)
   };
 
   return (

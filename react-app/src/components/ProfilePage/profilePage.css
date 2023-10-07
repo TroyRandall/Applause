@@ -79,6 +79,7 @@
 
 #create-post-component-container {
   height: 60vh;
+<<<<<<< HEAD
   width: 55vw;
   background-color: transparent;
   position: absolute;
@@ -106,12 +107,21 @@ flex-flow: column;
 #create-post-inside-container {
   display: flex;
   align-items: center;
+=======
+  width: 40vw;
+  background-color: antiquewhite;
+  position: absolute;
+  top: 20vh;
+  right: 30vw;
+  display: flex;
+>>>>>>> 3248a660 (truncated history)
 }
 
 #create-post-component {
   display: flex;
   flex-flow: column;
 }
+<<<<<<< HEAD
 
 .card {
   padding: 20px;
@@ -326,3 +336,5 @@ button[type="submit"]:hover {
   max-width: 520px;
   margin: 0 auto;
 }
+=======
+>>>>>>> 3248a660 (truncated history)
